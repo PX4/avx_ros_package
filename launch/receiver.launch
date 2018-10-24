@@ -1,0 +1,15 @@
+<launch>
+
+    <arg name="record_position"         default="false" />
+    <arg name="record_all_together"     default="false" />
+
+    <include file="$(find av_tests_package)/launch/receiver_mavros.launch" > </include>
+
+    <node name="receiver_node" pkg="av_tests_package" type="receiver_node" output="screen"> </node>
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find av_tests_package)/resources/receiver.rviz" /> -->
+
+    <!-- <node pkg="rosbag" type="record" name="position_bag" args="record -O position_bag /mavros/local_position/pose" if="$(arg record_position)"/> -->
+ 
+</launch>
+ 
