@@ -69,3 +69,52 @@ if [[ ! -z $unsupported_os ]]; then
     >&2 echo -e "and continued with the installation, but if things are not working as"
     >&2 echo -e "expected you have been warned."
 fi
+
+## install mavlink-router
+cd 
+git clone https://github.com/intel/mavlink-router.git
+cd mavlink-router
+git submodule update --init --recursive
+ ./autogen.sh && ./configure CFLAGS='-g -O2' \
+        --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib64 \
+    --prefix=/usr
+
+make 
+sudo make install
+
+#change config file
+cd /etc
+sudo mkdir mavlink-router
+cd mavlink-router
+sudo touch main.conf
+
+#creat config file
+
+echo "
+[General]
+#Mavlink-router serves on this TCP port
+TcpServerPort=5790
+ReportStats=false
+MavlinkDialect=auto
+
+
+[UartEndpoint px4]
+Device = /dev/ttyTHS1
+Baud = 500000
+
+[UdpEndpoint mavros]
+Mode = Normal
+Address = 127.0.0.1
+Port = 14540
+
+[UdpEndpoint UserRemote]
+Mode = Normal
+Address = 192.168.1.XXX
+Port = 14550
+" > main.conf
+
+#add file in systemd 
+cd /etc/systemd/system
+sudo touch mavlink-router.service
+
+echo "" > mavlink-router.service
