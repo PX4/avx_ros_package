@@ -2,24 +2,6 @@ diff --git a/aslam_offline_calibration/kalibr/python/exporters/kalibr_rovio_conf
 index f9f09f6..cef6c06 100755
 --- a/aslam_offline_calibration/kalibr/python/exporters/kalibr_rovio_config
 +++ b/aslam_offline_calibration/kalibr/python/exporters/kalibr_rovio_config
-@@ -44,7 +44,8 @@ def printCameraBlock(camConfig, t_SC, q_CS):
-     #extract base topic
-     tokens=topic.split(image_topic)
-     image_base_topic=tokens[0].replace("/", "", -1) #=cam0/
--    cidx = image_base_topic[-1:]
-+
-+    cidx = image_base_topic[-1:] 
- 
-     STRING_OUT=""
-     STRING_OUT+= "Camera{0}\n".format(cidx)
-@@ -136,7 +137,7 @@ if __name__ == "__main__":
- 
-         # TF_imu_cam transforms points from camera to imu frame (inverse transformation of Kalibr camchain file)
-         TF_imu_cam = camchain.getExtrinsicsImuToCam(cidx).inverse()
--
-+        
-         # T_SC is translational part of transformation from camera to imu frame
-         t_SC = TF_imu_cam.t()
  
 @@ -147,7 +148,7 @@ if __name__ == "__main__":
  

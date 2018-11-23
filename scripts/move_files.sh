@@ -10,14 +10,17 @@ INSTALL_DIR=$PWD
 
 mv -v $INSTALL_DIR/resources/bags/* $AUTERION_WS/bags/
 cd $AUTERION_WS/bags/
-wget --no-check-certificate 'https://drive.google.com/file/d/15HPUubcvl3QNr_-G7BWvOGDQzrgrKNU5/view?usp=sharing' -O auterion_validation.bag.zip 
+wget --no-check-certificate 'https://drive.google.com/file/d/14gEK33zrKNFywN4LOB_XKK8ys_U3yU0t/view?usp=sharing' -O auterion_validation.bag.tar.gz
+tar -zxvf auterion_validation.bag.tar.gz 
+rm auterion_validation.bag.tar.gz 
 
-cd $INSTALL_DIR
+
 
 # kalibr wrapper which supports the extrinsics calibration between camera and IMU
 cp $INSTALL_DIR/resources/kalibr_repo/rovio_footer_px4.txt $AUTERION_WS/src/Kalibr/aslam_offline_calibration/kalibr/python/exporters/auxiliary_files/
 
 # patch footer needed for rovio file
+cd $AUTERION_WS
 patch -p1 -i $INSTALL_DIR/patches/kalibr_rovio_config.patch
 
 
