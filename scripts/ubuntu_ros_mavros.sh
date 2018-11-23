@@ -88,7 +88,7 @@ sudo mkdir mavlink-router
 cd mavlink-router
 sudo touch main.conf
 
-#creat config file
+#create config file
 
 echo "
 [General]
