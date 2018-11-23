@@ -3,9 +3,9 @@ update_rate:                 240.0      #200 Hz (for discretization of the value
 # datasheet https://www.analog.com/media/en/technical-documentation/data-sheets/adis16477.pdf
 # allan standard deviation 4h 
 #Accelerometer:
-accelerometer_noise_density: 7.8e-03 #4
-accelerometer_random_walk: 7.6e-04
+accelerometer_noise_density: 0.05 #4
+accelerometer_random_walk: 0.005
 #Gyroscope:
-gyroscope_noise_density: 9.5e-04 # 5
-gyroscope_random_walk: 8.7e-05
+gyroscope_noise_density: 0.005 # 5
+gyroscope_random_walk: 0.0005
 

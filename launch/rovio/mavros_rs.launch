@@ -5,9 +5,9 @@
     <arg name="bag_prefix" default="camimu"/>
     <arg name="hw_sync"   default="true"/>
 
-    <arg name="fcu_url" default="udp://:14540@127.0.0.1:14540"/>
+    <!--arg name="fcu_url" default="udp://:14540@127.0.0.1:14540"/>-->
     <!--<arg name="fcu_url" default="/dev/ttyTHS1:500000"/> -->
-    <!--<arg name="fcu_url" default="udp://:14540@localhost:14557"/>-->
+    <arg name="fcu_url" default="udp://:14540@localhost:14557"/>
 
     <arg name="topic_imu" default="/mavros/imu/data_raw"/>
 
@@ -37,5 +37,6 @@
       args="record -o $(env AUTERION_WS)/bags/$(arg bag_prefix) 
         /camera/infra1/image_rect_raw 
 	   $(arg topic_imu) 
-	   /mavros/cam_imu_sync/cam_imu_stamp  " />
+	   /mavros/cam_imu_sync/cam_imu_stamp
+       /mavros/local_position/pose " />
 </launch>

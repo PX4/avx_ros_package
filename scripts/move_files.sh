@@ -9,6 +9,10 @@ INSTALL_DIR=$PWD
 # bag folder needed for the calibration in kalibr with bag and yaml files
 
 mv -v $INSTALL_DIR/resources/bags/* $AUTERION_WS/bags/
+cd $AUTERION_WS/bags/
+wget --no-check-certificate 'https://drive.google.com/file/d/15HPUubcvl3QNr_-G7BWvOGDQzrgrKNU5/view?usp=sharing' -O auterion_validation.bag.zip 
+
+cd $INSTALL_DIR
 
 # kalibr wrapper which supports the extrinsics calibration between camera and IMU
 cp $INSTALL_DIR/resources/kalibr_repo/rovio_footer_px4.txt $AUTERION_WS/src/Kalibr/aslam_offline_calibration/kalibr/python/exporters/auxiliary_files/

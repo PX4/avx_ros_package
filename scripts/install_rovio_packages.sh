@@ -43,7 +43,7 @@ catkin build realsense2_camera
 
 cd $REALSENSE_DIRECTORY
 git fetch --all
-git checkout dc9c2c199e728925bdf5d511f8f48bb2dd97c207
+git checkout 255805851761d8565bf6c61d174a2db125b31a29
 
 ## Re-source environment to reflect new packages/build environment
 catkin_ws_source="source $NEW_WS/devel/setup.bash"
