@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <launch>
-    <arg name="filter_config"   default="Auterion.info"/>
-    <arg name="camera0_config"  default="Auterion_cam_rovio.yaml"/>
+    <arg name="filter_config"   default="auterion.info"/>
+    <arg name="camera0_config"  default="auterion_cam_rovio.yaml"/>
     <arg name="topic_cam0" default="/camera/infra1/image_rect_raw"/>
     <arg name="topic_imu" default="/mavros/imu/data_raw"/>
 

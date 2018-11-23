@@ -19,10 +19,15 @@ rm auterion_validation.bag.tar.gz
 # kalibr wrapper which supports the extrinsics calibration between camera and IMU
 cp $INSTALL_DIR/resources/kalibr_repo/rovio_footer_px4.txt $AUTERION_WS/src/Kalibr/aslam_offline_calibration/kalibr/python/exporters/auxiliary_files/
 
-# patch footer needed for rovio file
+# patch the rovio exporter in kalibr
 cd $AUTERION_WS
 patch -p1 -i $INSTALL_DIR/patches/kalibr_rovio_config.patch
 
+#patch the image queue in rovio
+patch -p1 -i $INSTALL_DIR/patches/RovioNode.patch
+
+catkin build rovio --cmake-args  -DMAKE_SCENE=OFF
+source $AUTERION_WS/devel/setup.bash
 
 
 # rovio launch files
