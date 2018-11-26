@@ -1,0 +1,14 @@
+diff --git a/aslam_offline_calibration/kalibr/python/exporters/kalibr_rovio_config b/aslam_offline_calibration/kalibr/python/exporters/kalibr_rovio_config
+index f9f09f6..cef6c06 100755
+--- a/aslam_offline_calibration/kalibr/python/exporters/kalibr_rovio_config
++++ b/aslam_offline_calibration/kalibr/python/exporters/kalibr_rovio_config
+ 
+@@ -147,7 +148,7 @@ if __name__ == "__main__":
+ 
+         CONFIG += printCameraBlock(camConfig, t_SC, q_CS)
+ 
+-    with open(kalibr_path + '/python/exporters/auxiliary_files/rovio_footer.txt', 'r') as file_:
++    with open(kalibr_path + '/python/exporters/auxiliary_files/rovio_footer_px4.txt', 'r') as file_:
+         CONFIG += file_.read()
+ 
+     with open('rovio_test.info', 'w') as file_:

@@ -1,0 +1,11 @@
+rostopic:                    /mavros/imu/data_raw      #the IMU ROS topic
+update_rate:                 240.0      #200 Hz (for discretization of the values above)
+# datasheet https://www.analog.com/media/en/technical-documentation/data-sheets/adis16477.pdf
+# allan standard deviation 4h 
+#Accelerometer:
+accelerometer_noise_density: 0.05 #4
+accelerometer_random_walk: 0.005
+#Gyroscope:
+gyroscope_noise_density: 0.005 # 5
+gyroscope_random_walk: 0.0005
+
