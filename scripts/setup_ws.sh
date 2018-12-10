@@ -10,7 +10,7 @@ INSTALL_DIR=$PWD
 
 mv -v $INSTALL_DIR/resources/bags/* $AUTERION_WS/bags/
 cd $AUTERION_WS/bags/
-wget --no-check-certificate 'https://drive.google.com/file/d/14gEK33zrKNFywN4LOB_XKK8ys_U3yU0t/view?usp=sharing' -O auterion_validation.bag.tar.gz
+wget --no-check-certificate 'https://drive.google.com/uc?id=14gEK33zrKNFywN4LOB_XKK8ys_U3yU0t&export=download' -O auterion_validation.bag.tar.gz
 tar -zxvf auterion_validation.bag.tar.gz 
 rm auterion_validation.bag.tar.gz 
 
