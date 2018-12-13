@@ -38,9 +38,13 @@ Port = 14550
 chmod +x ubuntu_ros_mavros.sh
 ./ubuntu_ros_mavros.sh
 ```
+For the usual setup Pixhawk -> Companion Computer -> QGC you need to have a serial port between pixhawk and companion computer, a udp port to localhost for mavros running on the companion computer and a udp port to your laptop/tablet IP where you will run QGC.
 
-
-
+```bash
+sudo vim /etc/rc.local
+mavlink-routerd &
+```
+Add the ```mavlink-routerd &``` before exit 0.
 
 Also the Dronecode SDK can run on the TX2 to communicate with the flight controller.
 
