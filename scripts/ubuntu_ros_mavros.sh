@@ -113,8 +113,3 @@ Address = 192.168.1.XXX
 Port = 14550
 " > main.conf
 
-#add file in systemd 
-cd /etc/systemd/system
-sudo touch mavlink-router.service
-
-echo "" > mavlink-router.service

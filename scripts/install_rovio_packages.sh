@@ -13,7 +13,7 @@ NEW_WS=${HOME}/$ws_name
 REALSENSE_DIRECTORY=$NEW_WS/src/realsense
 ROVIO_DIR=$NEW_WS/src/rovio
 green=`tput setaf 2`
-
+reset=`tput sgr0`
 
 cd $NEW_WS
 catkin clean
@@ -98,6 +98,7 @@ source ~/.bashrc
 echo ""
 echo ""
 
+cd 
 cd .config 
 mkdir matplotlib
 echo "backend: Agg" > ~/.config/matplotlib/matplotlibrc
