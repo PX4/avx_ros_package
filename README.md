@@ -44,7 +44,7 @@ For the usual setup Pixhawk -> Companion Computer -> QGC you need to have a seri
 sudo vim /etc/rc.local
 mavlink-routerd &
 ```
-Add the ```mavlink-routerd &``` before exit 0.
+Add the ```mavlink-routerd &``` before ```exit 0```.
 
 Also the Dronecode SDK can run on the TX2 to communicate with the flight controller.
 
