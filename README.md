@@ -22,32 +22,29 @@ sudo apt-get update
 
 Launch ubuntu_ros_mavros.sh script to install ros and mavros on the TX2.
 ```bash
+git clone https://github.com/PX4/avx_ros_package.git
+cd avx_ros_package.git/scripts/
+vim ubuntu_ros_mavros.sh
+```
+Please change under Address to your IP Address in the file at 
+```bash
+[UdpEndpoint UserRemote]
+Mode = Normal
+Address = 192.168.1.XXX
+Port = 14550
+```
+
+```bash
 chmod +x ubuntu_ros_mavros.sh
 ./ubuntu_ros_mavros.sh
 ```
+For the usual setup Pixhawk -> Companion Computer -> QGC you need to have a serial port between pixhawk and companion computer, a udp port to localhost for mavros running on the companion computer and a udp port to your laptop/tablet IP where you will run QGC.
 
-Clone this repo inside your catkin workspace.
 ```bash
-cd ~/catkin_ws/src
-git clone https://github.com/PX4/avx_ros_package.git
+sudo vim /etc/rc.local
+mavlink-routerd &
 ```
-
-Build the ros package using catkin.
-```bash
-cd ~/catkin_ws
-catkin build avx_ros_package
-source ~/.bashrc
-```
-
-Launch example node from avx_ros_package using the launch script. This node subscribes to local_position and state and prints in on the shell.
-```bash
-roslaunch avx_ros_package receiver.launch
-```
-
-Launch mavros to start recording raw imu data into a rosbag.
-```bash
-roslaunch avx_ros_package test.launch
-```
+Add the ```mavlink-routerd &``` before exit 0.
 
 Also the Dronecode SDK can run on the TX2 to communicate with the flight controller.
 
