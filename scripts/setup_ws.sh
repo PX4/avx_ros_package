@@ -20,12 +20,14 @@ rm auterion_validation.bag.tar.gz
 cp $INSTALL_DIR/resources/kalibr_repo/rovio_footer_px4.txt $AUTERION_WS/src/Kalibr/aslam_offline_calibration/kalibr/python/exporters/auxiliary_files/
 
 # patch the rovio exporter in kalibr
-cd $AUTERION_WS
+cd $AUTERION_WS/src/Kalibr/
 patch -p1 -i $INSTALL_DIR/patches/kalibr_rovio_config.patch
 
 #patch the image queue in rovio
+cd $AUTERION_WS/src/rovio/
 patch -p1 -i $INSTALL_DIR/patches/RovioNode.patch
 
+cd cd $AUTERION_WS
 catkin build rovio --cmake-args  -DMAKE_SCENE=OFF
 source $AUTERION_WS/devel/setup.bash
 
